@@ -88,7 +88,7 @@ class CampaignNameUpdate(BaseModel):
     campaign_name_tag: Optional[str] = None
     campaign_name: Optional[str] = None
 
-# -------- UTM URL Builder --------
-class UTMBuildRequest(BaseModel):
-    main_url: str
-    user_id: str
+# # -------- UTM URL Builder --------
+# class UTMBuildRequest(BaseModel):
+#     main_url: str
+#     user_id: str

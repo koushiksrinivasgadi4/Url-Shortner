@@ -238,25 +238,25 @@ async def delete_campaign_name(user_id: str, unique_id: str, db: AsyncSession = 
 # UTM URL Builder API
 # ===========================
 
-@campaign_router.post("/campaign_utm_url")
-async def campaign_utm_url(payload: campaign_schemas.UTMBuildRequest, db: AsyncSession = Depends(get_session)):
-    sources = await campaign_services.get_campaign_sources(db, payload.user_id)
-    mediums = await campaign_services.get_campaign_mediums(db, payload.user_id)
-    names = await campaign_services.get_campaign_names(db, payload.user_id)
+# @campaign_router.post("/campaign_utm_url")
+# async def campaign_utm_url(payload: campaign_schemas.UTMBuildRequest, db: AsyncSession = Depends(get_session)):
+#     sources = await campaign_services.get_campaign_sources(db, payload.user_id)
+#     mediums = await campaign_services.get_campaign_mediums(db, payload.user_id)
+#     names = await campaign_services.get_campaign_names(db, payload.user_id)
 
-    if not (sources and mediums and names):
-        raise HTTPException(status_code=404, detail="Campaign details not found for user")
+#     if not (sources and mediums and names):
+#         raise HTTPException(status_code=404, detail="Campaign details not found for user")
 
-    # Pick the latest one (or apply your logic here)
-    source = sources[-1]
-    medium = mediums[-1]
-    name = names[-1]
+#     # Pick the latest one (or apply your logic here)
+#     source = sources[-1]
+#     medium = mediums[-1]
+#     name = names[-1]
 
-    # Build UTM URL
-    campaign_url = (
-        f"{payload.main_url}?"
-        f"campaign_source_tag={source.campaign_source_tag}&campaign_source_name={source.campaign_source_name}"
-        f"&campaign_medium_tag={medium.campaign_medium_tag}&campaign_medium_name={medium.campaign_medium_name}"
-        f"&campaign_name_tag={name.campaign_name_tag}&campaign_name={name.campaign_name}"
-    )
-    return {"campaign_url": campaign_url}
+#     # Build UTM URL
+#     campaign_url = (
+#         f"{payload.main_url}?"
+#         f"campaign_source_tag={source.campaign_source_tag}&campaign_source_name={source.campaign_source_name}"
+#         f"&campaign_medium_tag={medium.campaign_medium_tag}&campaign_medium_name={medium.campaign_medium_name}"
+#         f"&campaign_name_tag={name.campaign_name_tag}&campaign_name={name.campaign_name}"
+#     )
+#     return {"campaign_url": campaign_url}
