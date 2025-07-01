@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "url-shortener"
+version = "0.1.0"
+description = ""
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+sqlmodel = "^0.0.22"
+fastapi = {extras = ["standard"], version = "^0.115.5"}
+asyncpg = "^0.30.0"
+alembic = "^1.14.0"
+pre-commit = "^4.0.1"
+pydantic-settings = "2.1.0"
+redis = "^6.0.0"
+uvicorn = {extras = ["standard"], version = "^0.34.2"}
+greenlet = "^3.2.2"
+gunicorn = "^23.0.0"
+pytz = "^2025.2"
+pytx = "^0.5.10"
+geoip2 = "^5.1.0"
+pyyaml = "^6.0.2"
+user-agents = "^2.2.0"
+aioredis = "^2.0.1"
+streamlit = "^1.46.0"
+
+
+[tool.poetry.group.dev.dependencies]
+alembic = "^1.16.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
